@@ -1,0 +1,13 @@
+.container{
+  display: flex;
+
+  box-shadow: 0.8px black;
+  padding: 5px;
+    width: 100vw;
+    height: 50vh;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+
