@@ -1,36 +1,43 @@
 <section class="container">
 
 
-  <section class="container-sm">
+  <section class="form">
+
+
 
     <section class="container-sm">
             <p>Converter de</p>
             <div class="input-group input-group-sm mb-3 ">
                 <span class="input-group-text " id="inputGroup-sizing-default">Valor:</span>
-                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <input type="number" class="form-control" [value]="valor">
             </div>
-            <select class="form-select combobox" aria-label="Default select example">
-                <option selected>Dólar dos EUA (USD)</option>
-                <option value="1">Real (BRL)</option>
-                <option value="2">Euro (EUR)</option>
-                <option value="3">Peso Argentino (ARS)</option>
+            <select class="form-select combobox">
+              <option selected>Selecione a moeda desejada</option>
+
+              <option *ngFor ="let moeda of moedas"
+              [value] = "moeda.simbolo" > {{moeda.nome}} - {{moeda.simbolo}}
+
+              </option>
             </select>
-    </section>
+          </section>
 
 
     <section class="container-sm">
       <p>Para:</p>
-      <select class="form-select combobox" aria-label="Default select example">
-          <option value ="USD">Dólar dos EUA (USD)</option>
-          <option value="BRL">Real (BRL)</option>
-          <option value="EUR">Euro (EUR)</option>
-          <option value="ARS">Peso Argentino (ARS)</option>
-      </select>
+        <option selected>Selecione a moeda desejada</option>
+        <select class="form-select combobox">
+          <option selected>Selecione a moeda desejada</option>
+
+          <option *ngFor ="let moeda of moedas"
+          [value] = "moeda.simbolo" > {{moeda.nome}} - {{moeda.simbolo}}
+
+          </option>
+        </select>
+      </section>
+
         <button class="btn">Converter</button>
     </section>
 
 
 
     </section>
-
-</section>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit } from '@angular/core';
+import { ConversorService } from '../service/conversor.service';
 
 @Component({
   selector: 'app-container',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContainerComponent implements OnInit {
 
-  constructor() { }
-  value: string ='';
-  ngOnInit(): void {
-  }
+  moedas = [
+    {simbolo: 'BRL', nome: 'Real Brasileiro'},
+    {simbolo: 'USD', nome: 'Dólar Americano'},
+    {simbolo: 'EUR', nome: 'Euro'}
+  ];
+
+ valor:number = 0;
+
+  constructor(private service: ConversorService) {
+
+   }
+
+   ngOnInit(){
+      this.service.converteMoeda(this.valor);
+   }
+
 
 }

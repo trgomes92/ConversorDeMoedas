@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header/header.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ContainerComponent } from './container/container.component';
+import { ContainerResultadoComponent } from './container/container-resultado/container-resultado.component';
 
 
 
@@ -15,6 +16,7 @@ import { ContainerComponent } from './container/container.component';
     AppComponent,
     HeaderComponent,
     ContainerComponent,
+    ContainerResultadoComponent
 
   ],
   imports: [
