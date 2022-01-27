@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ContainerComponent implements OnInit {
 
   constructor() { }
-
+  value: string ='';
   ngOnInit(): void {
   }
 

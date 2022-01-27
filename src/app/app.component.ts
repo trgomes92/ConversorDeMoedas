@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, Injectable, OnInit } from '@angular/core';
+import { ConversorService } from './service/conversor.service';
 
 
 
@@ -8,12 +8,18 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'conversor_moedas';
+export class AppComponent implements OnInit{
+  title = 'Conversor de Moedas';
 
 
+    constructor(service: ConversorService){
+      service.converteMoeda();
+    };
 
-  //Injeção do HTTP pelo método construtor
+  ngOnInit(): void{
+
+  }
+
 
 
 
