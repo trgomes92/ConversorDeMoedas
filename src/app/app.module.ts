@@ -1,3 +1,4 @@
+import { Conversao } from './container/conversao';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +9,8 @@ import { HeaderComponent } from './header/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContainerComponent } from './container/container.component';
 import { ContainerResultadoComponent } from './container/container-resultado/container-resultado.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -23,9 +26,10 @@ import { ContainerResultadoComponent } from './container/container-resultado/con
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
 
   ],
-  providers: [],
+  providers: [Conversao],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

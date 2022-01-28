@@ -9,9 +9,20 @@
             <p>Converter de</p>
             <div class="input-group input-group-sm mb-3 ">
                 <span class="input-group-text " id="inputGroup-sizing-default">Valor:</span>
-                <input type="number" class="form-control" [value]="valor">
+                <input type="number" class="form-control" [(ngModel)] = "cvs.valor">
             </div>
-            <select class="form-select combobox">
+            <select class="form-select combobox" [(ngModel)]="cvs.selectedOptionMoedaAtual">
+              <option *ngFor ="let moeda of moedas"
+              [value] = "moeda.simbolo"> {{moeda.nome}} - {{moeda.simbolo}}
+
+              </option>
+            </select>
+          </section>
+
+
+        <section class="container-sm">
+          <p>Para:</p>
+            <select class="form-select combobox" [(ngModel)] ="cvs.selectedOptionMoedaConverter" >
               <option selected>Selecione a moeda desejada</option>
 
               <option *ngFor ="let moeda of moedas"
@@ -19,25 +30,10 @@
 
               </option>
             </select>
-          </section>
 
+            <button class="btn" (click) ="converter()">Converter</button>
 
-    <section class="container-sm">
-      <p>Para:</p>
-        <option selected>Selecione a moeda desejada</option>
-        <select class="form-select combobox">
-          <option selected>Selecione a moeda desejada</option>
-
-          <option *ngFor ="let moeda of moedas"
-          [value] = "moeda.simbolo" > {{moeda.nome}} - {{moeda.simbolo}}
-
-          </option>
-        </select>
       </section>
-
-        <button class="btn">Converter</button>
-    </section>
-
 
 
     </section>
