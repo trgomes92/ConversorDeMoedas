@@ -1,9 +1,10 @@
+import { Conversao } from './../container/conversao';
 
 
-import { ContainerComponent } from '../container/container.component';
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable} from '@angular/core';
-import { Conversao } from '../container/conversao';
+
 
 
 @Injectable({
@@ -20,20 +21,15 @@ export class ConversorService{
 
   };
 
-
-
-
-
-
      API = 'https://api.exchangerate.host/convert?';
 
-   converteMoeda(conversao: Conversao):void{
+   converteMoeda(conversao: Conversao){
 
 
      this.http.get<Object>(this.API + `from=${conversao.selectedOptionMoedaAtual}&to=${conversao.selectedOptionMoedaConverter}&amount=${conversao.valor}`).subscribe( result =>{
         console.log('API RODANDO! :)');
         console.log(result)
-
+        return result;
      });
    }
 

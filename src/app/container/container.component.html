@@ -11,7 +11,9 @@
                 <span class="input-group-text " id="inputGroup-sizing-default">Valor:</span>
                 <input type="number" class="form-control" [(ngModel)] = "cvs.valor">
             </div>
+            <p>Selecione a moeda:</p>
             <select class="form-select combobox" [(ngModel)]="cvs.selectedOptionMoedaAtual">
+
               <option *ngFor ="let moeda of moedas"
               [value] = "moeda.simbolo"> {{moeda.nome}} - {{moeda.simbolo}}
 
@@ -23,7 +25,7 @@
         <section class="container-sm">
           <p>Para:</p>
             <select class="form-select combobox" [(ngModel)] ="cvs.selectedOptionMoedaConverter" >
-              <option selected>Selecione a moeda desejada</option>
+
 
               <option *ngFor ="let moeda of moedas"
               [value] = "moeda.simbolo" > {{moeda.nome}} - {{moeda.simbolo}}

@@ -1,5 +1,4 @@
-
-
+import { AppComponent } from './../../app.component';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,7 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor() { }
+  constructor(public app: AppComponent) {
+      app.title = 'Conversor de Moedas'
+   }
+
 
 
 
