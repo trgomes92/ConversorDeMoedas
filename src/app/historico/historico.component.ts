@@ -1,31 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 
-
-export interface PeriodicElement {
-  position: number;
-  date: string;
-  hour: string;
-  moedaFrom: string;
-  moedaTo: string;
-
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, date: '10/02/2022', hour: '14:00', moedaFrom: 'BRL', moedaTo: 'USD' },
-  { position: 2, date: '10/02/2022', hour: '14:00', moedaFrom: 'BRL', moedaTo: 'USD' },
-  { position: 3, date: '10/02/2022', hour: '14:01', moedaFrom: 'BRL', moedaTo: 'USD' },
-  { position: 4, date: '10/02/2022', hour: '14:01', moedaFrom: 'BRL', moedaTo: 'USD' },
-];
-
-@Component({
-  selector: 'app-historico',
-  templateUrl: './historico.component.html',
-  styleUrls: ['./historico.component.css']
-})
+import { ContainerResultadoService } from 'src/app/service/container-resultado.service';
 
 
-export class HistoricoComponent {
 
-  displayedColumns: string[] = ['position', 'date', 'hour', 'moedaFrom', 'moedaTo'];
-  dataSource = ELEMENT_DATA;
+  export interface historico {
+    data: string;
+    hora: string;
+    valor: number;
+    moedaFrom: string;
+    moedaTo: string;
+    resultado: number;
+    taxa: number;
+  }
+
+  const  ELEMENT_DATA: historico[] = [ 
+    {data: '', hora: "13:00", valor: 1, moedaFrom: '', moedaTo: '', resultado: 2, taxa: 3} // Array onde os dados devem ser armazenados.
+  ];
+
+  @Component({
+    selector: 'app-historico',
+    templateUrl: './historico.component.html',
+    styleUrls: ['./historico.component.css']
+  })
+
+  export class HistoricoComponent implements OnInit {
+    displayedColumns: any[] = ['data','hora','valor','moedaFrom', 'moedaTo', 'resultado', 'taxa']; // colunas da tabela
+    historico = ELEMENT_DATA;
+  
+
+    constructor(public _service:ContainerResultadoService){ // Consulta os dados no ResultadoService
+    
+    }
+
+    ngOnInit(): void {
+  }
+
+
+  
+  
 }
